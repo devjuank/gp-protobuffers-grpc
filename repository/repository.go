@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"platzi.com/go/grpc/models"
+	models "github.com/devjuank/go-protobuffers-grpc/models"
 )
 
 type Repository interface {

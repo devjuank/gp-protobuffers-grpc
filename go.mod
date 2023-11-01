@@ -1,16 +1,17 @@
-module platzi.com/go/grpc
+module github.com/devjuank/go-protobuffers-grpc
 
-go 1.17
-
-require google.golang.org/protobuf v1.27.1
+go 1.20
 
 require (
-	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/lib/pq v1.10.4 // indirect
-	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
-	golang.org/x/sys v0.0.0-20220209214540-3681064d5158 // indirect
-	golang.org/x/text v0.3.7 // indirect
-	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
-	google.golang.org/genproto v0.0.0-20220211171837-173942840c17 // indirect
-	google.golang.org/grpc v1.44.0 // indirect
+	github.com/lib/pq v1.10.9
+	google.golang.org/grpc v1.59.0
+	google.golang.org/protobuf v1.31.0
+)
+
+require (
+	github.com/golang/protobuf v1.5.3 // indirect
+	golang.org/x/net v0.14.0 // indirect
+	golang.org/x/sys v0.11.0 // indirect
+	golang.org/x/text v0.12.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
 )

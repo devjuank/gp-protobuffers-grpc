@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"log"
 
+	"github.com/devjuank/go-protobuffers-grpc/models"
 	_ "github.com/lib/pq"
-	"platzi.com/go/grpc/models"
 )
 
 type PostgresRepository struct {

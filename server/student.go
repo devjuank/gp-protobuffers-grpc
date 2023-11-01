@@ -3,9 +3,9 @@ package server
 import (
 	"context"
 
-	"platzi.com/go/grpc/models"
-	"platzi.com/go/grpc/repository"
-	"platzi.com/go/grpc/studentpb"
+	models "github.com/devjuank/go-protobuffers-grpc/models"
+	repository "github.com/devjuank/go-protobuffers-grpc/repository"
+	studentpb "github.com/devjuank/go-protobuffers-grpc/studentpb"
 )
 
 type Server struct {
