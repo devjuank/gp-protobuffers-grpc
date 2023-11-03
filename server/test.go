@@ -2,6 +2,8 @@ package server
 
 import (
 	"context"
+	"io"
+	"log"
 
 	models "github.com/devjuank/go-protobuffers-grpc/models"
 	"github.com/devjuank/go-protobuffers-grpc/repository"
@@ -40,4 +42,34 @@ func (s *TestServer) SetTest(ctx context.Context, req *testpb.Test) (*testpb.Set
 	return &testpb.SetTestResponse{
 		Id: test.Id,
 	}, nil
+}
+
+func (s *TestServer) SetQuestions(stream testpb.TestService_SetQuestionsServer) error {
+	for {
+		msg, err := stream.Recv()
+		if err == io.EOF {
+			return stream.SendAndClose(&testpb.SetQuestionResponse{
+				Ok: true,
+			})
+		}
+
+		if err != nil {
+			log.Fatalf("Error reading stream: %v", err)
+			return err
+		}
+
+		question := &models.Question{
+			Id:       msg.GetId(),
+			Question: msg.GetQuestion(),
+			Answer:   msg.GetAnswer(),
+			TestId:   msg.GetTestId(),
+		}
+
+		err = s.repo.SetQuestion(context.Background(), question)
+		if err != nil {
+			return stream.SendAndClose(&testpb.SetQuestionResponse{
+				Ok: true,
+			})
+		}
+	}
 }
